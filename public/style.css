@@ -1,0 +1,29 @@
+body {
+  margin: 0;
+  padding: 0;
+  font-size: 16px;
+}
+
+.form-control {
+  font-weight: 100;
+  font-size: 1.7rem;
+}
+
+.chat-form {
+  margin-top: 20px;
+  font-family: "Roboto", sans-serif;
+  font-size: 1.5rem;
+}
+
+
+.chat-display {
+  min-height: 150px;
+  max-height: 40vh;
+  overflow: scroll;
+  font-size: 1.2em;
+}
+
+.chat-display p {
+  font-size: .9em;
+  padding: 0 10px;
+}
