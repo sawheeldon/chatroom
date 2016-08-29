@@ -2,6 +2,11 @@ $(document).ready(function() {
     var socket = io();
     var chatUsername = document.querySelector('#chat-username');
     var chatMessage = document.querySelector('#chat-message');
+    //var typer = document.querySelector('.typing');
+    // var connected = false;
+    // var typing = false;
+    // var lastTypingTime;
+    // var TYPING_TIMER_LENGTH = 400; // ms
     // var input = $('#chat-message');
     // var messages = $('#messages');
     // var messageContainer = $('#message-container');
@@ -26,6 +31,14 @@ $(document).ready(function() {
         socket.on('updateMessages', function(data) {
           showMessage(data);
         }); //updateMessages
+  //       socket.on('typing', function (data) {
+  //       postMessage(data);
+  //       });
+
+  // // Whenever the server emits 'stop typing', kill the typing message
+  //       socket.on('stop typing', function (data) {
+  //         removeChatTyping(data);
+  //       });
   } //chatform
 }); //socket
 
@@ -35,7 +48,7 @@ function showMessage(data) {
 
   if (chatUsername.value == data.username) {
     newMessage.className = 'bg-success chat-text';
-  } else {
+  } else  {
     newMessage.className = 'bg-info text-warning chat-text';
   }
 
@@ -43,8 +56,44 @@ function showMessage(data) {
   chatDisplay.insertBefore(newMessage, chatDisplay.firstChild);
 }
 
-
 });
+// function updateTyping () {
+//     if (connected) {
+//       if (!typing) {
+//         typing = true;
+//         socket.emit('typing');
+//       }
+//       lastTypingTime = (new Date()).getTime();
+      
+//       setTimeout(function () {
+//         var typingTimer = (new Date()).getTime();
+//         var timeDiff = typingTimer - lastTypingTime;
+//         if (timeDiff >= TYPING_TIMER_LENGTH && typing) {
+//           socket.emit('stop typing');
+//           typing = false;
+//         }
+//       }, TYPING_TIMER_LENGTH);
+//     }
+//   }
+
+//   // Gets the 'X is typing' messages of a user
+//   function getTypingMessages (username) {
+//     console.log("This is adding");
+//     return (chatMessage).filter(function (i) {
+//       return document.querySelector(this).data('username') === username;
+//     });
+//   }
+  
+//   function removeChatTyping (username) {
+//     console.log("This is removing");
+//     getTypingMessages(username).fadeOut(function () {
+//       document.querySelector(this).remove();
+//     });
+    
+// }
+
+  
+
 
 //socket.on('updateMessages', showMessage);
     
@@ -75,5 +124,3 @@ function showMessage(data) {
 //     });
     
 //     socket.on('message', addMessage);
-
-// });

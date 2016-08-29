@@ -22,10 +22,20 @@ io.on('connection', function(socket) {
     socket.on('postMessage', function(data) {
         console.log('Received message:', data);
     io.emit('updateMessages', data);
-    //socket.broadcast.emit('updateMessages', data);
   });
 });
+//     socket.on('typing', function () {
+//     socket.broadcast.emit('typing', {
+//       username: socket.username
+//     });
+//   });
 
+  // when the client emits 'stop typing', we broadcast it to others
+//     socket.on('stop typing', function () {
+//     socket.broadcast.emit('stop typing', {
+//       username: socket.username
+//     });
+//   });
 // io.on('connection', function (socket) {
 //     console.log('Client connected');
     
