@@ -1,7 +1,7 @@
 $(document).ready(function() {
     var socket = io();
-    var chatUsername = $('#chat-username');
-    var chatMessage = $('#chat-message');
+    var chatUsername = document.querySelector('#chat-username');
+    var chatMessage = document.querySelector('#chat-message');
     // var input = $('#chat-message');
     // var messages = $('#messages');
     // var messageContainer = $('#message-container');
@@ -23,14 +23,14 @@ $(document).ready(function() {
           chatMessage.value='';
           chatMessage.focus();
         }); //chatform event
-     socket.on('updateMessages', function(data) {
+        socket.on('updateMessages', function(data) {
           showMessage(data);
         }); //updateMessages
   } //chatform
 }); //socket
 
 function showMessage(data) {
-  var chatDisplay = $('.chat-display');
+  var chatDisplay = document.querySelector('.chat-display');
   var newMessage = document.createElement('p');
 
   if (chatUsername.value == data.username) {
