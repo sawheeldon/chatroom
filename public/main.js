@@ -2,6 +2,9 @@ $(document).ready(function() {
     var socket = io();
     var chatUsername = document.querySelector('#chat-username');
     var chatMessage = document.querySelector('#chat-message');
+    
+    // Extra code that hasn't been used at this time *****
+    
     //var typer = document.querySelector('.typing');
     // var connected = false;
     // var typing = false;
@@ -30,7 +33,11 @@ $(document).ready(function() {
         }); //chatform event
         socket.on('updateMessages', function(data) {
           showMessage(data);
-        }); //updateMessages
+        }); 
+        
+        // Extra code that hasn't been used at this time *****
+        
+        //updateMessages
   //       socket.on('typing', function (data) {
   //       postMessage(data);
   //       });
@@ -57,6 +64,10 @@ function showMessage(data) {
 }
 
 });
+
+// Extra code that hasn't been used at this time *****
+
+
 // function updateTyping () {
 //     if (connected) {
 //       if (!typing) {

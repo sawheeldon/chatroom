@@ -24,6 +24,8 @@ io.on('connection', function(socket) {
     io.emit('updateMessages', data);
   });
 });
+// Extra code that hasn't been used at this time *****
+
 //     socket.on('typing', function () {
 //     socket.broadcast.emit('typing', {
 //       username: socket.username
